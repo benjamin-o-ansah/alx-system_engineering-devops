@@ -1,0 +1,10 @@
+#!/bin/bash
+# Split PATH by ':' and count non-empty entries
+IFS=':' read -ra dirs <<< "$PATH"
+count=0
+for dir in "${dirs[@]}"; do
+    if [ -n "$dir" ]; then
+        ((count++))
+    fi
+done
+echo "$count"
